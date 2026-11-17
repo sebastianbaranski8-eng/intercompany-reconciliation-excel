@@ -47,8 +47,8 @@ Separately, two FX translation errors in Alfa Polska (same-day rate used instead
 4. **FX check.** `XLOOKUP` with match mode -1 on `date - 1` finds the rate from the previous business day; the expected PLN amount is compared with the posted one.
 5. **Conditional formatting** highlights every row with a difference.
 6. **PivotTables** count and sum the differences by status for each ledger.
-7. **Reconciliation sheet.** Balance per each company, net difference, reconciling items calculated with `SUMIFS` (each item counted once and from the correct side), and a control check that the items equal the balance difference. `FILTER` lists the items, and the explanation for each invoice is pulled from the `Explanations` table.
-8. **Explanations.** One sentence per item: what happened and who should correct it.
+7. **Reconciliation sheet.** Balance per each company, net difference, reconciling items summarised by category from the `Explanations` table with `COUNTIFS`/`SUMIFS`, and a named control cell (`ReconCheck`) that confirms the items equal the balance difference. `FILTER` lists the items, and the explanation for each invoice is pulled from the `Explanations` table.
+8. **Explanations.** The `Explanations` table holds one sentence and one category per invoice; its status and EUR impact are calculated from the ledgers with `XLOOKUP` and `LET`.
 
 ![Ledger with conditional formatting](screenshots/02_ledger_pl.png)
 

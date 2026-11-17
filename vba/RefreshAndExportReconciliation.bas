@@ -28,7 +28,7 @@ Sub RefreshAndExportReconciliation()
 
     ' 3. Check that the reconciliation closes
     Set ws = ThisWorkbook.Worksheets("Reconciliation")
-    If ws.Range("C15").Value <> "OK" Then
+    If ws.Range("ReconCheck").Value <> "OK" Then
         If MsgBox("Reconciliation check is not OK. Export anyway?", vbYesNo + vbExclamation) = vbNo Then GoTo CleanExit
     End If
 
